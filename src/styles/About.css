@@ -1,0 +1,125 @@
+.about {
+  padding: var(--spacing-2xl) 0;
+  background-color: var(--color-bg-secondary);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.about-intro {
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.about-details {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.about-skills h3 {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.skill-tag {
+  background-color: var(--color-bg-primary);
+  color: var(--color-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.skill-tag:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.about-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image-placeholder {
+  width: 250px;
+  height: 250px;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--color-bg-tertiary), var(--color-border-light));
+  border: 2px dashed var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.image-placeholder::before {
+  content: '📸';
+  font-size: var(--font-size-3xl);
+  opacity: 0.3;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .about-visual {
+    order: -1;
+  }
+  
+  .about-image-placeholder {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .about-intro {
+    font-size: var(--font-size-base);
+  }
+  
+  .skills-grid {
+    justify-content: center;
+  }
+  
+  .about-image-placeholder {
+    width: 150px;
+    height: 150px;
+  }
+} 
