@@ -35,6 +35,7 @@ const Footer = () => {
         
         <div className="footer-bottom">
           <p>&copy; 2025 Sanjith. built with ❤️ and React</p>
+          <a href="/login" className="admin-link">Admin Login</a>
         </div>
       </div>
     </footer>

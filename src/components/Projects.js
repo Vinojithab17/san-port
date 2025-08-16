@@ -1,7 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { projectsData } from '../data/projectsData';
 import '../styles/Projects.css';
 
 const Projects = () => {
+  const navigate = useNavigate();
+  
   const scrollToTop = () => {
     window.scrollTo({ 
       top: 0, 
@@ -9,29 +13,14 @@ const Projects = () => {
     });
   };
 
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      description: "a full-stack e-commerce solution built with modern web technologies, featuring user authentication, product management, and secure payment processing.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "project1"
-    },
-    {
-      id: 2,
-      title: "Task Management App",
-      description: "a collaborative task management application that helps teams stay organized and productive with real-time updates and intuitive interfaces.",
-      technologies: ["React", "Firebase", "CSS Modules", "PWA"],
-      image: "project2"
-    },
-    {
-      id: 3,
-      title: "Portfolio Website",
-      description: "this very website! built with clean code principles and a focus on user experience, showcasing the importance of thoughtful design.",
-      technologies: ["React", "CSS", "JavaScript", "Responsive Design"],
-      image: "project3"
-    }
-  ];
+  const handleViewDetails = (projectId) => {
+    // Clear scroll position before navigation
+    window.scrollTo(0, 0);
+    // Navigate to project details
+    navigate(`/project/${projectId}`);
+  };
+
+  const projects = projectsData;
 
   return (
     <section className="projects" id="projects">
@@ -41,10 +30,10 @@ const Projects = () => {
           here are some projects i've been working on lately
         </p>
         <div className="projects-grid">
-          {projects.map((project) => (
+          {projects.slice(0, 3).map((project) => (
             <div key={project.id} className="project-card">
               <div className="project-image">
-                <div className={`project-placeholder ${project.image}`}></div>
+                <img src={project.image} alt={project.title} className="project-image-img" />
               </div>
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
@@ -54,10 +43,29 @@ const Projects = () => {
                     <span key={index} className="tech-tag">{tech}</span>
                   ))}
                 </div>
-                <button onClick={scrollToTop} className="project-link">view project →</button>
+                <div className="project-actions">
+                  <button 
+                    onClick={() => handleViewDetails(project.id)} 
+                    className="project-link primary"
+                  >
+                    View Details →
+                  </button>
+                  <button onClick={scrollToTop} className="project-link secondary">
+                    Back to Top
+                  </button>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+        
+        <div className="view-all-projects">
+          <button 
+            onClick={() => navigate('/all-projects')} 
+            className="view-all-btn"
+          >
+            View All Projects →
+          </button>
         </div>
       </div>
     </section>

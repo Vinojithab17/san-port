@@ -23,7 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero">
+    <section className="hero" id="home">
       <div className="hero-content">
         <h1 className="hero-greeting">
           hello, i'm <span className="hero-name">Sanjith</span> 👋
@@ -38,7 +38,11 @@ const Hero = () => {
       </div>
       <div className="hero-visual">
         <div className="hero-illustration">
-          <div className="placeholder-circle"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&auto=format" 
+            alt="Sanjith - Developer Portrait" 
+            className="hero-profile-image"
+          />
         </div>
       </div>
     </section>
